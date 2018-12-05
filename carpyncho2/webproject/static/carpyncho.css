@@ -1,0 +1,20 @@
+.fixed-height {
+    height: 600px;
+    overflow-x: hidden;
+}
+
+#cqlEditor{
+    width: 100%;
+    font-family: monospace;
+    background-color: #2B2B2B;
+    color: #90B4CF;
+    height: 4em;
+}
+
+#cqlErrors {
+    font-family: monospace;
+}
+
+ul.errorlist {
+    color: #B94A48;
+}

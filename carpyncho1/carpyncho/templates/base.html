@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Carpyncho - {% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tool for Citizen Science over VVV data">
+    <meta name="author" content="VVV Team">
+    {% include "css.html" %}
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="http://mwm.astro.puc.cl/mw/index.php/Main_Page">Carpyncho</a>
+            <ul id="navul" class="nav">
+                {% if user.is_authenticated %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    {% block content %}Empty page{% endblock %}
+    <p><hr></p>
+    <footer class="row">
+        <div class="text-center">
+            &copy; <a href="http://mwm.astro.puc.cl/mw/index.php/Main_Page">VVV Team</a> 2014
+        </div>
+    </footer>
+</div> <!-- container -->
+
+<div>
+    {% include "js.html" %}
+    {% block extra_js %}{% endblock %}
+</div>
+
+</body>
+
+</html>

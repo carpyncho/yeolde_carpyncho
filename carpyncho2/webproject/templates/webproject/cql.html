@@ -1,0 +1,73 @@
+{% extends "webproject/base.html" %}
+{% load humanize carpyncho %}
+
+{% block title %}Search{%endblock%}
+
+{% block page_title %}
+    <h4>Page {{sources.page}} of {{sources.page_count}}</h4>
+    <strong>Current Filter:</strong> <code>{{cql}}</code>
+    <span class="pull-right text-info">Total Sources: {{sources.item_count}}</span>
+    <a id="editCQL" title="Edit CQL" data-toggle="collapse" href="#collapseCQL" class="btn-info btn btn-sm" aria-expanded="false" aria-controls="collapseCQL">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+    <a href="#cql"  title="Download as CSV" class="cql-export btn btn-primary btn-sm" data-cql="export({{cql|safe}}, fmt='csv')">
+        <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+    </a>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1 fixed-height">
+        <table class="table table-hover">
+            <thead>
+                <th>#</th>
+                {% for column in columns %}
+                <th>{{column}}</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for src in sources %}
+                <tr>
+                    <td>{{forloop.counter|counter_in_page:sources}}</td>
+                    {% for elem in src %}
+                    <td class="text.center">{% if elem == None %}-{% else %}{{elem}}{% endif %}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="container">
+    {% if sources.page_count > 1 %}
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <ul class="pagination">
+                {% if sources.page == 1 %}
+                <li class="active"><a href="#cql"><<</a></li>
+                <li class="active"><a href="#cql"><</a></li>
+                {% else %}
+                <li><a class="cql" href="#cql" data-cqlpage="1" data-cql="{{cql}}"><<</a></li>
+                <li><a class="cql" href="#cql" data-cqlpage="{{ sources.previous_page }}" data-cql="{{cql}}"><</a></li>
+                {% endif %}
+                {% for i in sources|pages_for_paginator %}
+                    {% if sources.page == i %}
+                    <li class="active"><a href="#cql">{{i}}</a></li>
+                    {% else %}
+                    <li><a class="cql" href="#cql" data-cqlpage="{{i}}" data-cql="{{cql}}">{{i}}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if sources.page == sources.last_page %}
+                <li class="active"><a href="#cql">></a></li>
+                <li class="active"><a href="#cql">>></a></li>
+                {% else %}
+                <li><a class="cql" href="#cql" data-cqlpage="{{ sources.next_page }}" data-cql="{{cql}}">></a></li>
+                <li><a class="cql" href="#cql" data-cqlpage="{{ sources.last_page }}" data-cql="{{cql}}">>></a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

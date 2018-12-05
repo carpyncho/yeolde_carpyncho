@@ -1,0 +1,57 @@
+{% extends "webproject/base.html" %}
+{% load staticfiles %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <h1 class="title-login" style="border:none">About Carpyncho</h1>
+            <img src="{% static 'imgs/logo.png' %}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <p class="lead">
+                We present the IVOA registered <a href="http://vvvsurvey.org/">VVV</a> band-merged photometry facility for the Virtual Observatory,
+                first published on the 2013-10-08T14:00:00 and a new data mining facility in development which we
+                hope will be used by VVV team members and eventually the public to search and characterize time
+                variable data of the ~ PB size VVV database.
+            </p>
+            <p class="lead">
+                Carpyncho is layored on-top of a
+                <a target="_blank" href="http://www.scipy.org/">scientific Python library stack</a> which includes:
+                <a target="_blank" href="http://www.numpy.org/">NumPy</a>,
+                <a target="_blank" href="http://www.scipy.org/scipylib/index.html">SciPy</a>,
+                <a target="_blank" href="http://www.astropy.org/">Astropy</a>,
+                <a target="_blank" href="http://pyastronomy.readthedocs.org">PyAstronomy</a>,
+                <a target="_blank" href="http://astroml.org/">astroML</a> and
+                <a target="_blank" href="http://scikit-learn.org">scikit-learn</a>.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>Publications and Posters</h3>
+            <ul>
+                <li><a href="https://github.com/leliel12/talks/raw/master/vvv2016/carpyncho/poster.pdf">The 7th VVV Science Workshop Poster</a> (PDF)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>Contact Us</h3>
+            <address class="">
+                  <strong>IATE - Instituto de Astronomía Teórica y Experimental </strong><br>
+                  Laprida 854, X5000BGR<br>
+                  Córdoba, Argentina<br>
+                  <abbr title="Phone">Phone</abbr> (+54-351)-4331066/5353776,
+                  <abbr title="Fax">Fax</abbr> (ext. 101)<br>
+                  <abbr title="Email">Email</abbr>: <a href="mailto:jbcabral@oac.unc.edu.ar">Jbcabral@oac.unc.edu.ar<br>
+                </a>
+            </address>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Logged out{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <h1 class="title-login" style="border:none">Successfully logged out! </h1>
+            <img src="{% static 'imgs/logo.png' %}">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function(){
+    setTimeout(function(){
+        window.location.assign("/");
+    }, 10000);
+
+});
+</script>
+{% endblock %}

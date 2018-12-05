@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+
+{% block title %}Request New User{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+            <h1 class="text-center">{% trans "User Created" %}</h1>
+            <img src="{% static 'imgs/logo.png' %}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6 text-center alert alert-success">
+            <div class="lead">The creation of your user is already requested</div>
+            <div>Shortly you will receive an email when your account is active</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+
+</script>
+{% endblock %}

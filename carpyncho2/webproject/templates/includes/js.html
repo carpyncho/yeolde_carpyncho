@@ -1,0 +1,30 @@
+{% load staticfiles bootstrap3 %}
+
+<script type="text/javascript" src="{% static 'static_jquery/js/jquery.js' %}"></script>
+
+{% bootstrap_javascript %}
+
+<script type="text/javascript" src="{% static 'js/base64.js' %}"></script>
+
+<script src="{% static 'Brython/brython.js' %}"></script>
+<script src="{% static 'carpyncho.js' %}"></script>
+
+<script>
+$(document).ready(function(){
+    var start = 2014;
+    var end = new Date().getFullYear();
+    var text = start.toString();
+    for(var idx=1; start + idx <= end; idx++){
+        var current = start + idx;
+        text = text  + ", " + current.toString();
+    }
+    $(".years-copyright").text(text);
+
+
+    setTimeout(function(){
+        $("#message-container div.alert-dismissable").hide("slow");
+    }, 5000);
+
+});
+</script>
+
