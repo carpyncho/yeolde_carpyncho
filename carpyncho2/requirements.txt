@@ -41,7 +41,7 @@ py==1.4.31
 PyAstronomy==0.9.0
 pyflakes==1.0.0
 python-editor==0.5
-PyYAML==3.11
+PyYAML==5.1
 sadisplay==0.4.6
 scikit-learn==0.17.1
 scipy==0.16.1
